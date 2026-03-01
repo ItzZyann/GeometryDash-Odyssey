@@ -1,10 +1,10 @@
 #pragma once
 using namespace geode::prelude;
 
-class OdysseyPopup : public geode::Popup<std::string const &, std::string const &>
+class OdysseyPopup : public geode::Popup
 {
 protected:
-    bool setup(std::string const &, std::string const &) override;
+    bool init(std::string const &title, std::string const &desc);
     bool m_translationWarning = false;
     bool m_savefileWarning = false;
 

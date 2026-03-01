@@ -269,7 +269,7 @@ class $modify(OdysseyLevelTools, LevelTools)
 			level->m_levelString = LocalLevelManager::sharedState()->getMainLevelString(levelID);
 
 		level->m_levelID = levelID;
-		level->m_levelType = GJLevelType::Local;
+		level->m_levelType = GJLevelType::Main;
 
 		return level;
 	};

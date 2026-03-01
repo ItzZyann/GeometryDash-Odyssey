@@ -1,6 +1,10 @@
 # Changelog
 
-### <cg>v1.0.1 (Latest)</c>
+### <cg>v1.0.2 (Latest)</c>
+
+* <cy>Updated for version 2.2081 and Geode v5</c>.
+
+### <cb>v1.0.1</c>
 
 <cr>*We aware on game crashing bugs on android and shop items still showing as not bought, developing a fix as we speak*</c>
 

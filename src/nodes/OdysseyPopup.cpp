@@ -1,7 +1,10 @@
 #include "OdysseyPopup.hpp"
 
-bool OdysseyPopup::setup(std::string const &title, std::string const &desc)
+bool OdysseyPopup::init(std::string const &title, std::string const &desc)
 {
+    if(!Popup::init(320, 200, "GJ_square01.png", {0, 0, 80, 80}))
+        return false;
+
     auto contentSize = m_mainLayer->getContentSize();
     auto m_background = CCScale9Sprite::create("square02b_001.png", {0, 0, 80, 80});
 
@@ -40,7 +43,7 @@ OdysseyPopup *OdysseyPopup::create(std::string title, std::string desc)
 {
     auto ret = new OdysseyPopup();
 
-    if (ret->initAnchored(320.f, 200.f, title, desc))
+    if (ret->init(title, desc))
     {
         ret->autorelease();
         return ret;

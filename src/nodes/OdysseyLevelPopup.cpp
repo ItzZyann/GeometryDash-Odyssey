@@ -2,8 +2,11 @@
 #include "../layers/OdysseyComicLayer.hpp"
 #include "../utils/Utils.hpp"
 
-bool OdysseyLevelPopup::setup(std::string const &title)
+bool OdysseyLevelPopup::init()
 {
+    if(!Popup::init(360, 260, "GJ_square01.png", {0, 0, 80, 80}))
+        return false;
+    
     //  El Nivel
     m_level = GameLevelManager::get()->getMainLevel(m_levelID, true);
     auto contentSize = m_mainLayer->getContentSize();
@@ -204,7 +207,7 @@ OdysseyLevelPopup *OdysseyLevelPopup::create(int levelID)
     auto ret = new OdysseyLevelPopup();
     ret->m_levelID = levelID;
 
-    if (ret && ret->initAnchored(360.f, 260.f, ""))
+    if (ret && ret->init())
     {
         ret->autorelease();
         return ret;

@@ -4,6 +4,7 @@
 #include <Geode/modify/MusicDownloadManager.hpp>
 #include <Geode/modify/PauseLayer.hpp>
 #include <Geode/modify/PurchaseItemPopup.hpp>
+#include <Geode/modify/GJDropDownLayer.hpp>
 #include "utils/Utils.hpp"
 
 #ifdef DEVELOPER_MODE
@@ -131,6 +132,10 @@ class $modify(GDO_MusicDownloadManager, MusicDownloadManager)
 	}
 };
 
+// it was caused by this ig?
+// because when i removed this
+// it wont crash
+
 class $modify(SongsLayer)
 {
 	void customSetup()
@@ -151,6 +156,8 @@ class $modify(SongsLayer)
 
 		m_listLayer->m_listView = CustomListView::create(songObjectArray, nullptr, 220.0, 356.0, 0, BoomListType::Song, 0.0);
 		m_listLayer->addChild(m_listLayer->m_listView);
+
+		return;
 	}
 };
 
@@ -173,3 +180,11 @@ class $modify(PurchaseItemPopup)
 		Odyssey::unlockObject(m_storeItem->m_typeID.value(), m_storeItem->m_unlockType.value());
 	}
 };
+
+/*
+class $modify(GJDropDownLayer) {
+	void exitLayer(CCObject* sender) {
+		return;
+	}
+};
+*/

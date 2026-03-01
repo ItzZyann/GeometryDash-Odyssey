@@ -68,7 +68,7 @@ class $modify(OdysseyGameManager, GameManager)
 
     void returnToLastScene(GJGameLevel *level)
     {
-        if (level->m_levelType == GJLevelType::Local)
+        if (level->m_levelType == GJLevelType::Main)
         {
             int page = Odyssey::islandPageForLevelID(level->m_levelID);
 

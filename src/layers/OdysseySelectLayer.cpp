@@ -861,12 +861,16 @@ void OdysseySelectLayer::onRope(CCObject *)
     CCDirector::sharedDirector()->replaceScene(CCTransitionMoveInT::create(.63f, garage));
 }
 
+// TODO: FIX CRASH ON THIS PART
+// WHEN CLOSING THE LAYER 'Using the Back Button'
+// - ItzZyann
 void OdysseySelectLayer::onSongs(CCObject *)
 {
     auto layer = SongsLayer::create();
-    layer->m_delegate = this;
-    this->addChild(layer);
     layer->showLayer(false);
+    layer->m_delegate = this;
+
+    this->addChild(layer);
 }
 
 void OdysseySelectLayer::onShop(CCObject *)

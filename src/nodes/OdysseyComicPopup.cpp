@@ -1,8 +1,11 @@
 #include "OdysseyComicPopup.hpp"
 #include "../layers/OdysseyComicLayer.hpp"
 
-bool OdysseyComicPopup::setup()
+bool OdysseyComicPopup::init()
 {
+    if(!Popup::init(400, 200, "GJ_square01.png", {0, 0, 80, 80}))
+        return false;
+
     auto contentSize = m_mainLayer->getContentSize();
 
     //  Fondo del Popup
@@ -72,7 +75,7 @@ OdysseyComicPopup *OdysseyComicPopup::create()
 {
     auto ret = new OdysseyComicPopup();
 
-    if (ret && ret->initAnchored(400.f, 200.f))
+    if (ret && ret->init())
     {
         ret->autorelease();
         return ret;

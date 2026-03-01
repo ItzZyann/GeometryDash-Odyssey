@@ -1,10 +1,10 @@
 #pragma once
 using namespace geode::prelude;
 
-class OdysseyComicPopup : public geode::Popup<>
+class OdysseyComicPopup : public geode::Popup
 {
 protected:
-    bool setup() override;
+    bool init();
     void onComic(CCObject *);
 
 public:

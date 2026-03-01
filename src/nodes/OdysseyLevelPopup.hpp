@@ -1,14 +1,14 @@
 #pragma once
 using namespace geode::prelude;
 
-class OdysseyLevelPopup : public geode::Popup<std::string const &>
+class OdysseyLevelPopup : public geode::Popup
 {
 private:
     GJGameLevel *m_level;
     int m_levelID = 0;
 
 protected:
-    bool setup(std::string const &) override;
+    bool init();
     void onPlay(CCObject *);
     void onSettings(CCObject *);
     void onComic(CCObject *);

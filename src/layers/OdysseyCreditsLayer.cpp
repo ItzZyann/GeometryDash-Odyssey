@@ -1,8 +1,11 @@
 #include "OdysseyCreditsLayer.hpp"
 #include "../nodes/OdysseyCreditNode.hpp"
 
-bool OdysseyCreditsLayer::setup()
+bool OdysseyCreditsLayer::init()
 {
+    if(!Popup::init(430, 270, "GJ_square01.png", {0, 0, 80, 80}))
+        return false;
+
     auto director = CCDirector::sharedDirector();
     auto winSize = director->getWinSize();
     auto bg_LayerSprite02 = CCLayer::create();
@@ -405,12 +408,14 @@ void OdysseyCreditsLayer::setupCreditsModDeveloperTab()
     auto ML5User = OdysseyCreditNode::create("ML500", 296, 22, 106, 106, true, 2102);
     auto SumiUser = OdysseyCreditNode::create("Chumiu", 457, 94, 52, 12, true, 25521533);
     auto CypherUser = OdysseyCreditNode::create("Cypher", 31, 9, 1, 1, true, 6332919);
+    auto zyannUser = OdysseyCreditNode::create("ItzZyann", 108, 94, 12, 12, true, 14292579);
 
     CCArray *row1CreditArray = CCArray::create();
 
     row1CreditArray->addObject(ML5User);
     row1CreditArray->addObject(SumiUser);
     row1CreditArray->addObject(CypherUser);
+    row1CreditArray->addObject(zyannUser);
 
     auto creditsReason = CCLabelBMFont::create("Mod Developers", "goldFont.fnt");
     creditsReason->setScale(0.7f);
@@ -422,10 +427,11 @@ void OdysseyCreditsLayer::setupCreditsModDeveloperTab()
     m_creditsmoddevLayer->addChild(ML5User, 4);
     m_creditsmoddevLayer->addChild(SumiUser, 4);
     m_creditsmoddevLayer->addChild(CypherUser, 4);
+    m_creditsmoddevLayer->addChild(zyannUser, 4);
     m_creditsmoddevLayer->addChild(bgLayer, 3);
     m_creditsmoddevLayer->addChild(creditsReason, 4);
 
-    GameToolbox::alignItemsHorisontally(row1CreditArray, 100.f, ccp(winSize.width / 2, winSize.height / 2), false);
+    GameToolbox::alignItemsHorisontally(row1CreditArray, 74.f, ccp(winSize.width / 2, winSize.height / 2), false);
 }
 
 void OdysseyCreditsLayer::setupCreditsSpecialThanksTab()
@@ -573,7 +579,7 @@ void OdysseyCreditsLayer::changeTab()
 OdysseyCreditsLayer *OdysseyCreditsLayer::create()
 {
     auto ref = new OdysseyCreditsLayer();
-    if (ref && ref->initAnchored(430.0f, 270.0f, "GJ_square07.png"))
+    if (ref && ref->init())
     {
         ref->autorelease();
         return ref;

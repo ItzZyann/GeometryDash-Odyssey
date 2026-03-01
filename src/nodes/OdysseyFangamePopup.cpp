@@ -1,7 +1,10 @@
 #include "OdysseyFangamePopup.hpp"
 
-bool OdysseyFangamePopup::setup(const char *fileName, const char *url)
+bool OdysseyFangamePopup::init(const char *fileName, const char *url)
 {
+    if(!Popup::init(386, 252, "GJ_square01.png", {0, 0, 80, 80}))
+        return false;
+    
     auto contentSize = m_mainLayer->getContentSize();
     m_link = url;
 
@@ -42,7 +45,7 @@ OdysseyFangamePopup *OdysseyFangamePopup::create(const char *fileName, const cha
 {
     auto ret = new OdysseyFangamePopup();
 
-    if (ret->initAnchored(386.f, 252.f, fileName, url))
+    if (ret->init(fileName, url))
     {
         ret->autorelease();
         return ret;

@@ -1,14 +1,14 @@
 #pragma once
 using namespace geode::prelude;
 
-class OdysseyFangamePopup : public geode::Popup<const char *, const char *>
+class OdysseyFangamePopup : public geode::Popup
 {
 protected:
     const char *m_link = nullptr;
     const char *m_buttonText = "Text";
     CCMenuItemSpriteExtra *m_linkButton = nullptr;
 
-    bool setup(const char *, const char *) override;
+    bool init(const char *, const char *);
     void onLink(CCObject *);
 
 public:
